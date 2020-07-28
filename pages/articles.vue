@@ -19,7 +19,7 @@ import orderBy from 'lodash/orderBy';
 export default {
   async asyncData ({ params }) {
     const medium = await axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@derlan');
-    const behance = await axios.get(process.env.baseUrl + `/api/portfolio`, {params: {'client_id': 'LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX'}});
+    const behance = await axios.get('/api/portfolio', {params: {'client_id': 'LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX'}});
     const feed = {  
       portfolio: {
         projects: behance.data.projects.map(project => ({
@@ -48,6 +48,7 @@ export default {
     return {}
   },
   mounted() {
+    // console.log(process.env)
   },
   methods: {
   }

@@ -31,9 +31,9 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap' }
     ]
   },
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
-  },
+  // env: {
+  //   baseUrl: process.env.baseUrl || 'http://localhost:3000'
+  // },
   /*
   ** Global CSS
   */
