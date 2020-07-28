@@ -31,9 +31,9 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap' }
     ]
   },
-  // env: {
-  //   baseUrl: process.env.baseUrl || 'http://localhost:3000'
-  // },
+  env: {
+    baseUrl: process.env.BASE_URL
+  },
   /*
   ** Global CSS
   */
@@ -78,8 +78,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // proxy: true,
-    // baseURL: 'http://localhost:3000', // Used as fallback if no runtime config is provided
+    proxy: true
   },
   // publicRuntimeConfig: {
   //   axios: {
