@@ -1,3 +1,4 @@
+import logger from "connect-logger";
 
 export default {
   /*
@@ -5,6 +6,9 @@ export default {
   ** See https://nuxtjs.org/api/configuration-mode
   */
   mode: 'universal',
+    serverMiddleware: [
+    logger({ format: "%date %status %method %url (%time)" })
+  ],
   // generate: {
   //   routes: [
   //     '/articles'
@@ -69,9 +73,7 @@ export default {
     '@nuxt/content',
   ],
   proxy: {
-  // With options
-    '/api/portfolio': 'https://api.behance.net/v2/users/asaldana/projects'
-    // '/api/blog': { target: 'https://medium.com/feed/@derlan', ws: false },
+    '/api/portfolio': 'https://api.behance.net/v2/users/asaldana/projects',
   },
   /*
   ** Axios module configuration

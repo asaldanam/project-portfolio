@@ -1,5 +1,5 @@
 <template>
-  <section class="Articles t-container">
+  <section class="Articles o-container">
     <article class="Article" v-for="entry in feed" :key="entry.title">
       <div class="ArticleImage" :style="`background-image: url(${entry.image})`"></div>
       <!-- <img :src="entry.image" alt=""> -->
@@ -11,12 +11,21 @@
 </template>
 
 <script>
-import axios from 'axios'
-import Parser from 'rss-parser';
 import moment from 'moment';
 import orderBy from 'lodash/orderBy';
 
 export default {
+  // Key for <NuxtChild> (transitions)
+  key: to => to.fullPath,
+  // Called to know which transition to apply
+  transition (to, from) {
+    // if (!from) { return 'slide-left' }
+    // return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+    return {
+      name: '-',
+      mode: 'in-out'
+    }
+  },
   async asyncData ({ $axios }) {
     const medium = await $axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@derlan');
     const behance = await $axios.get('/api/portfolio', {params: {'client_id': 'LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX'}});
@@ -59,6 +68,19 @@ export default {
   .Articles {
     display: flex;
     flex-wrap: wrap;
+    transition: opacity .35s, transform .35s;
+    &.--enter-active, &.--leave-active {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    /* &.--enter-active, &.--leave-active {
+      transform: translateY(0%);
+    }
+    &.--enter, &.--leave-active {
+      transform: translateY(10%);
+      opacity: 0
+    } */
   }
 
   .Article {

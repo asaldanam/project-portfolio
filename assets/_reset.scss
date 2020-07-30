@@ -38,3 +38,15 @@ q {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+
+button {
+  -webkit-appearance: unset;
+  background: unset;
+  padding: unset;
+  border: unset;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
+}

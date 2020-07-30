@@ -33,7 +33,7 @@ export default {
       scaleY: this.calcSize().scaleY,
       translateY: this.calcSize().translateY,
       duration: 1300,
-      delay: 2600
+      delay: 300
     })
     // .add({
     //   easing: 'linear',
