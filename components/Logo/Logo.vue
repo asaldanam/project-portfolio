@@ -4,26 +4,26 @@
     <div class="Logo" role="presentation" style="transform: translateY(17%);">
       <!-- grid -->
       <svg id="logo-grid" width="394px" height="134px" viewBox="0 0 394 134">
-          <rect id="grid-h6" x="0" y="14" width="394" height="1"></rect>
-          <rect id="grid-h5" x="0" y="42" width="394" height="1"></rect>
-          <rect id="grid-h4" x="0" y="52" width="394" height="1"></rect>
-          <rect id="grid-h3" x="0" y="81" width="394" height="1"></rect>
-          <rect id="grid-h2" x="0" y="90" width="394" height="1"></rect>
-          <rect id="grid-h1" x="0" y="119" width="394" height="1"></rect>
-          <rect id="grid-v14" x="385" y="0" width="1" height="134"></rect>
-          <rect id="grid-v13" x="356" y="0" width="1" height="134"></rect>
-          <rect id="grid-v12" x="322" y="0" width="1" height="134"></rect>
-          <rect id="grid-v11" x="293" y="0" width="1" height="134"></rect>
-          <rect id="grid-v10" x="258" y="0" width="1" height="134"></rect>
-          <rect id="grid-v9" x="229" y="0" width="1" height="134"></rect>
-          <rect id="grid-v8" x="211" y="0" width="1" height="134"></rect>
-          <rect id="grid-v7" x="184" y="0" width="1" height="134"></rect>
-          <rect id="grid-v6" x="157" y="0" width="1" height="134"></rect>
-          <rect id="grid-v5" x="128" y="0" width="1" height="134"></rect>
-          <rect id="grid-v4" x="112" y="0" width="1" height="134"></rect>
-          <rect id="grid-v3" x="83" y="0" width="1" height="134"></rect>
-          <rect id="grid-v2" x="69" y="0" width="1" height="134"></rect>
-          <rect id="grid-v1" x="7" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-h6" x="0" y="14" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-h5" x="0" y="42" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-h4" x="0" y="52" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-h3" x="0" y="81" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-h2" x="0" y="90" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-h1" x="0" y="119" width="394" height="1"></rect>
+          <rect style="opacity: 0" id="grid-v14" x="385" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v13" x="356" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v12" x="322" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v11" x="293" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v10" x="258" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v9" x="229" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v8" x="211" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v7" x="184" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v6" x="157" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v5" x="128" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v4" x="112" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v3" x="83" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v2" x="69" y="0" width="1" height="134"></rect>
+          <rect style="opacity: 0" id="grid-v1" x="7" y="0" width="1" height="134"></rect>
       </svg>
       <!-- A -->
       <svg id="a-logo-letter" width="121px" height="134px" viewBox="0 0 121 134">

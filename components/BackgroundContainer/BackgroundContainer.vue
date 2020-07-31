@@ -33,13 +33,8 @@ export default {
       scaleY: this.calcSize().scaleY,
       translateY: this.calcSize().translateY,
       duration: 1300,
-      delay: 300
+      delay: 0
     })
-    // .add({
-    //   easing: 'linear',
-    //   duration: 300,
-    //   backgroundColor: '#FBF7ED',
-    // })
     
   },
   methods: {
@@ -49,7 +44,7 @@ export default {
       const verticalFactor = (window.innerHeight - headerHeight - padding) / window.innerHeight
       return {
         scaleX: window.innerWidth >= 1360 
-          ? 1360 / window.innerWidth 
+          ? 1280 / window.innerWidth 
           : (window.innerWidth - (2 * padding)) / window.innerWidth, 
         scaleY: verticalFactor,
         translateY: headerHeight / verticalFactor

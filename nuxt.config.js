@@ -9,11 +9,11 @@ export default {
     serverMiddleware: [
     logger({ format: "%date %status %method %url (%time)" })
   ],
-  // generate: {
-  //   routes: [
-  //     '/articles'
-  //   ]
-  // },
+  generate: {
+    routes: [
+      '/api/portfolio'
+    ]
+  },
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target

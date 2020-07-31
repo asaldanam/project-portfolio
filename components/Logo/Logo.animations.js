@@ -25,10 +25,12 @@ export class PlayLogoAnimations {
     .add({
       targets: getLines('v'),
       strokeDashoffset: [this.$anime.setDashoffset, 0],
+      opacity: 1,
       delay: this.$anime.stagger(100),
     })
     .add({
       targets: getLines('h'),
+      opacity: 1,
       strokeDashoffset: [this.$anime.setDashoffset, 0],
       delay: this.$anime.stagger(100),
     }, 300)
