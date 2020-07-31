@@ -65,6 +65,7 @@
 import moment from 'moment';
 import _ from 'lodash';
 import { Parser } from 'rss-parser'
+import jsonp from 'jsonp';
 
 export default {
   props: ['showPosts', 'showProjects', 'showSelector', 'sectionTitle'],
@@ -85,16 +86,25 @@ export default {
     }
   },
   methods: {
-    getPortfolio: async function() {
-      const behance = await this.$axios.get('/api/portfolio', {params: {'client_id': 'LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX'}});
-      const projects = behance.data.projects.map(project => ({
-        type: 'portfolio',
-        title: project.name,
-        date: moment(Number(project.published_on + '000')).toISOString(),
-        link: project.url,
-        image: project.covers['808']
-      }))
-      this.projects = projects
+    getPortfolio: function() {
+      // const behance = await this.$axios.get('/api/portfolio', {params: {'client_id': 'LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX'}});
+      jsonp('https://api.behance.net/v2/users/asaldana/projects?client_id=LU2mz0ZNPRKg6kLjC46e1Fd9aL1NA1CX', null, (err, behance) => {
+        if (err) {
+          console.error(err.message);
+        } else {
+          console.log(behance)
+
+          const projects = behance.projects.map(project => ({
+            type: 'portfolio',
+            title: project.name,
+            date: moment(Number(project.published_on + '000')).toISOString(),
+            link: project.url,
+            image: project.covers['808']
+          }))
+
+          this.projects = projects
+        }
+      });
     },
     getBlog: async function() {
       const medium = await this.$axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@derlan');
