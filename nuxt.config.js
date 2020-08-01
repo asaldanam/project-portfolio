@@ -11,7 +11,9 @@ export default {
   ],
   generate: {
     routes: [
-      '/api/portfolio'
+      '/portfolio',
+      '/blog',
+      '/about',
     ]
   },
   /*

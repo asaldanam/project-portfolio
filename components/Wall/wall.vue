@@ -107,7 +107,7 @@ export default {
       });
     },
     getBlog: async function() {
-      const medium = await this.$axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@derlan');
+      const medium = await this.$axios.get('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@asaldanam');
       const posts = medium.data.items.map(entry => ({
         type: 'blog',
         title: entry.title,
