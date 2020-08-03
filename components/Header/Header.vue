@@ -9,7 +9,7 @@
             <IMenu :isOpen="open"/>
           </button>
           <div class="Menu" :class="{'--open': open}">
-            <div ref="menuoverlay" class="MenuOverlay" style="opacity: 0" @click="toggleOpen()"></div>
+            <div ref="menuoverlay" class="MenuOverlay" style="opacity: 0"></div>
             <div ref="menubackground" class="MenuBackground" style="transform: translateX(-100%)"></div>
             <nav ref="menuwrapper" class="MenuWrapper" style="opacity: 0">
               <div @click="toggleOpen()" class="MenuContainer o-container">
@@ -24,6 +24,7 @@
                 <a class="ContactLink" href="https://www.linkedin.com/in/asaldanam/">Contactar</a>
               </div>
             </nav>
+            <div class="MenuCloseArea" @click="toggleOpen()"></div>
           </div>
         </div>
 
@@ -120,7 +121,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   @import 'assets/configs';
 
@@ -322,6 +323,20 @@ export default {
       width: calc(50% - 200px)
     }
 
+  }
+
+  .MenuCloseArea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: calc(60px);
+    @include tablet {
+      width: calc(50%);
+    }
+    @include desktop {
+      width: calc(50% + 200px)
+    }
   }
 
   .MenuOverlay {

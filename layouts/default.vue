@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 
   .Main {
-    padding-bottom: 6rem;
+    /* padding-bottom: 6rem; */
   }
 
  

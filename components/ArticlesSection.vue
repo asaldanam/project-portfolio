@@ -3,7 +3,7 @@
     <article class="Article" v-for="entry in feed" :key="entry.title">
       <div class="ArticleImage" :style="`background-image: url(${entry.image})`"></div>
       <!-- <img :src="entry.image" alt=""> -->
-      <a target="_blank" :href="entry.link">{{entry.title}}</a>
+      <a :href="entry.link">{{entry.title}}</a>
       <div>{{entry.date}}</div>
       <div>{{entry.type}}</div>
     </article>

@@ -1,7 +1,7 @@
 <template>
-  <div class="o-container ">
+  <div class="">
 
-    <header class="ArticlesHeader">
+    <header class="ArticlesHeader o-container ">
       <h2 class="t-headline-section ">{{sectionTitle}}</h2>
       <div class="ArticlesSelector" v-if="showSelector">
         <p class="ArticlesSelectorTxt">Filtrar:</p>
@@ -14,7 +14,7 @@
       </div>
     </header>
 
-    <section class="Articles">
+    <section class="Articles o-container ">
 
       <!-- Content -->
       <article class="Article" 
@@ -22,7 +22,7 @@
         :key="entry.title" 
         :style="{'animation-delay': (index * 100) + 'ms'}"
       >
-        <a target="_blank" :href="entry.link" class="ArticleContainer">
+        <a :href="entry.link" class="ArticleContainer">
           <div class="ArticleImage" :style="`background-image: url(${entry.image})`" role="presentation"></div>
           <div class="ArticleText">
             <h3 class="ArticleTitle">{{entry.title}}</h3>
@@ -58,6 +58,23 @@
       </div>
 
     </section>
+
+    <section class="Cta o-container" v-if="showProjects">
+      <div class="CtaContainer">
+        <p class="CtaText">También he trabajado para grandes empresas</p>
+        <p class="CtaLogos">
+          <img src="~/assets/images/logos/renfe.jpg" alt="Renfe" />
+          <img src="~/assets/images/logos/veci.jpg" alt="Viajes el Corte Inglés" />
+          <img src="~/assets/images/logos/telco.jpg" alt="Telefónica empresas" />
+          <img src="~/assets/images/logos/correos.jpg" alt="Correos" />
+          <img src="~/assets/images/logos/scib.jpg" alt="Santander Group" />
+          <img src="~/assets/images/logos/leroy.jpg" alt="Hogami by Leroy" />
+        </p>
+        <p class="CtaCatch">¿Quieres conocer sobre mi trabajo aquí?</p>
+        <p class="CtaLink"><a class="ContactLink" href="https://www.linkedin.com/in/asaldanam/">Contacta conmigo</a></p>
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -181,6 +198,7 @@ export default {
 
   .Articles {
     transition: opacity .35s, transform .35s;
+    margin-bottom: 3rem;
     &.--enter-active, &.--leave-active {
       transform: translateY(30px);
       opacity: 0;
@@ -247,6 +265,9 @@ export default {
       background-color: var(--color-skeleton);
     }
     @include tablet {
+      min-width: 300px;
+    }
+    @include desktop {
       min-height: 22vh;
     }
   }
@@ -378,6 +399,72 @@ export default {
       background-color: var(--color-primary);
       color: white;
       & > svg { transform: rotate(0deg); stroke: white; }
+    }
+  }
+
+  .Cta {
+    background: var(--t-color-tint-10);
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+    @include tablet {
+      padding: 5rem 0;
+    }
+  }
+
+  .CtaContainer {
+    text-align: center;
+  }
+
+  .CtaText {
+    font-size: 1.35rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    @include tablet {
+    font-size: 1.5rem;
+    }
+  }
+
+  .CtaLogos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    mix-blend-mode: multiply;
+    margin-bottom: 2rem;
+    & > img {
+      margin: 1rem;
+      height: 2.5rem;
+    }
+  }
+
+  .CtaCatch {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+
+  .CtaLink {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ContactLink {
+    background: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    color: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, .3);
+    &:hover {
+      text-decoration: underline;
     }
   }
 
