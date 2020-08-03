@@ -34,7 +34,11 @@ export default {
   },
   methods: {
     navigateToArticles: function() {
-      this.$router.push({path: 'articles'})
+      window.scrollBy({
+        top: window.innerHeight - window.scrollY - 100,
+        left: 0,
+        behaviour: 'smooth'
+      })
     },
   }  
 }

@@ -28,8 +28,8 @@
             <h3 class="ArticleTitle">{{entry.title}}</h3>
             <p class="ArticleData">
               <span class="ArticleDate">{{entry.date | dateformat}}</span>
-              <span class="ArticleSpacer">|</span>
-              <span class="ArticleType" :style="{backgroundColor: getTypeColor(entry.type)}">{{getTypeLiteral(entry.type)}}</span>
+              <span v-if="showPosts && showProjects" class="ArticleSpacer">|</span>
+              <span v-if="showPosts && showProjects" class="ArticleType" :style="{backgroundColor: getTypeColor(entry.type)}">{{getTypeLiteral(entry.type)}}</span>
             </p>
           </div>
         </a>
@@ -247,7 +247,7 @@ export default {
       background-color: var(--color-skeleton);
     }
     @include tablet {
-      min-height: 300px;
+      min-height: 22vh;
     }
   }
 

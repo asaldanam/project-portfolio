@@ -13,7 +13,7 @@
             <div ref="menubackground" class="MenuBackground" style="transform: translateX(-100%)"></div>
             <nav ref="menuwrapper" class="MenuWrapper" style="opacity: 0">
               <div @click="toggleOpen()" class="MenuContainer o-container">
-                <nuxt-link class="MenuLink" to="/">Home</nuxt-link>
+                <nuxt-link v-on:click.native="scrollToTop()" class="MenuLink" to="/">Home</nuxt-link>
                 <nuxt-link class="MenuLink" to="/portfolio">Mis proyectos</nuxt-link>
                 <nuxt-link class="MenuLink" to="/blog">Blog</nuxt-link>
                 <!-- <nuxt-link class="MenuLink" to="/about">Sobre mí</nuxt-link> -->
@@ -28,7 +28,9 @@
         </div>
 
         <!-- logo -->
-        <img class="Logo" src="~/assets/images/logo-asm.svg" role="presentation"/>
+        <nuxt-link to="/" class="Logo">
+          <img src="~/assets/images/logo-asm.svg" role="presentation"/>
+        </nuxt-link>
 
         <!-- right -->
         <div class="HeaderSide --rigth">
@@ -48,10 +50,12 @@ export default {
     return {
       _scrollListener: null,
       floatingHeader: false,
-      open: false
+      open: false,
+      currentPath: null
     }
   },
   mounted() {
+    console.log(this.currentPath);
     this.floatingHeader = window.scrollY > 5;
     this._scrollListener = window.addEventListener('scroll', () => {
       const threshold = 5;
@@ -68,9 +72,16 @@ export default {
   methods: {
     toggleOpen() {
       this.open = !this.open
+    },
+    scrollToTop() {
+      window.scrollTo(0,0)
     }
   },
   watch: { 
+    $route () {
+      this.currentPath = this.$route.fullPath;
+      console.log('route changed', this.currentPath);
+    },
     open: function(isOpen, oldVal) {
 
       document.body.style.overflow = isOpen ? 'hidden' : 'initial'
@@ -238,6 +249,7 @@ export default {
     text-decoration: none;
     margin-bottom: 2rem;
     position: relative;
+    transition: color .15s linear;
     &:after {
       content: '';
       display: block;
@@ -251,11 +263,14 @@ export default {
       transform: scaleX(0);
       transition: opacity .3s linear, transform .3s ease-in-out;
     }
-    &:hover {
+    &.nuxt-link-exact-active {
       &:after {
         opacity: 1;
         transform: scaleX(1);
       }
+    }
+    &:hover {
+      color: var(--color-primary);
     }
     @include tablet {
       font-size: 2rem;
@@ -301,11 +316,12 @@ export default {
     height: 100%;
     width: calc(100% - 60px);
     @include tablet {
-      width: calc(60%);
+      width: calc(50%);
     }
     @include desktop {
-      width: calc(30%);
+      width: calc(50% - 200px)
     }
+
   }
 
   .MenuOverlay {

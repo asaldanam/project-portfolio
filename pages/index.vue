@@ -40,13 +40,17 @@ export default {
     this._resizeListener = () => this.calcHeight()
     window.addEventListener('resize', this._resizeListener)
 
-    this.showWall = window.scrollY > this.scrollThreshold
+    setTimeout(() => {
+      this.showWall = true
+    }, 1500)
 
-    this._scrollListener = window.addEventListener('scroll', () => {
-      if (!this.showWall && window.scrollY > this.scrollThreshold) {
-        this.showWall = true;
-      }
-    })
+    // this.showWall = window.scrollY > this.scrollThreshold
+
+    // this._scrollListener = window.addEventListener('scroll', () => {
+    //   if (!this.showWall && window.scrollY > this.scrollThreshold) {
+    //     this.showWall = true;
+    //   }
+    // })
 
     this.calcHeight();
   },
