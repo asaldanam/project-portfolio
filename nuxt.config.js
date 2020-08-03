@@ -12,8 +12,7 @@ export default {
   generate: {
     routes: [
       '/portfolio',
-      '/blog',
-      '/about',
+      '/blog'
     ]
   },
   /*
