@@ -109,8 +109,6 @@ export default {
         if (err) {
           console.error(err.message);
         } else {
-          console.log(behance)
-
           const projects = behance.projects.map(project => ({
             type: 'portfolio',
             title: project.name,
@@ -404,7 +402,8 @@ export default {
 
   .Cta {
     background: var(--t-color-tint-10);
-    padding: 3rem 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     margin-bottom: 3rem;
     @include tablet {
       padding: 5rem 0;

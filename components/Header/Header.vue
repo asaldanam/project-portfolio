@@ -56,7 +56,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.currentPath);
     this.floatingHeader = window.scrollY > 5;
     this._scrollListener = window.addEventListener('scroll', () => {
       const threshold = 5;
@@ -81,7 +80,6 @@ export default {
   watch: { 
     $route () {
       this.currentPath = this.$route.fullPath;
-      console.log('route changed', this.currentPath);
     },
     open: function(isOpen, oldVal) {
 
