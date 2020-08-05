@@ -70,7 +70,7 @@
           <img src="~/assets/images/logos/scib.jpg" alt="Santander Group" />
           <img src="~/assets/images/logos/leroy.jpg" alt="Hogami by Leroy" />
         </p>
-        <p class="CtaCatch">¿Quieres conocer sobre mi trabajo aquí?</p>
+        <p class="CtaCatch">¿Quieres conocer más sobre mi trabajo?</p>
         <p class="CtaLink"><a class="ContactLink" href="https://www.linkedin.com/in/asaldanam/">Contacta conmigo</a></p>
       </div>
     </section>
@@ -203,7 +203,7 @@ export default {
     }
     @include tablet {
       display: grid;
-      grid-template-columns: repeat(12, [col-start] 1fr);
+      grid-template-columns: repeat(6, [col-start] 1fr);
       grid-column-gap: 2rem;
     }
   }
@@ -215,16 +215,17 @@ export default {
     animation: Article_fadein .45s cubic-bezier(0.77, 0, 0.175, 1) forwards;
     @include tablet {
       margin-bottom: 4rem;
-      grid-column: span 6;
+      grid-column: span 3;
     }
     @include desktop {
-      grid-column: span 4;
-      &:nth-child(1) {
-        grid-column: span 8;
+      grid-column: span 2;
+      &:nth-child(1), &:nth-child(7) {
+        grid-column: span 4;
         grid-row: span 2;
       }
-      &:nth-child(5), &:nth-child(9) {
-        grid-column: span 8;
+      &:nth-child(5), &:nth-child(11) {
+        grid-column: span 4;
+        grid-row: span 2
       }
     }
   }
@@ -245,6 +246,19 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+    position: relative;
+    filter: contrast(0.95);
+    /* &:after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      background-image: radial-gradient(50% 100%, #fff 50%, #fff 50%, #000000 100%);
+    } */
     &.--loading {
       overflow: hidden;
       position: relative;
@@ -266,7 +280,7 @@ export default {
       min-width: 300px;
     }
     @include desktop {
-      min-height: 22vh;
+      min-height: 24vh;
     }
   }
 
@@ -401,17 +415,18 @@ export default {
   }
 
   .Cta {
-    background: var(--t-color-tint-10);
-    padding-top: 3rem;
-    padding-bottom: 3rem;
     margin-bottom: 3rem;
-    @include tablet {
-      padding: 5rem 0;
-    }
   }
 
   .CtaContainer {
+    background: var(--t-color-tint-10);
     text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @include tablet {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
   }
 
   .CtaText {
