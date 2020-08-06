@@ -36,7 +36,7 @@
       </article>
 
       <!-- Skeleton -->
-      <div class="Article" v-for="(_, index) in (checkType('blog') && posts.length === 0 && showPosts ? Array.from({length: 6}).fill({}) : [])" :key="'blog' + index">
+      <div class="Article" v-for="(_, index) in (checkType('blog') && !posts && showPosts ? Array.from({length: 6}).fill({}) : [])" :key="'blog' + index">
         <div class="ArticleContainer --skeleton">
           <div class="ArticleImage --loading" role="presentation"></div>
           <div class="ArticleText --loading">
@@ -47,7 +47,7 @@
       </div>
 
       <!-- Skeleton -->
-      <div class="Article" v-for="(_, index) in (checkType('portfolio') && projects.length === 0 && showProjects ? Array.from({length: 6}).fill({}) : [])" :key="'portfolio' + index">
+      <div class="Article" v-for="(_, index) in (checkType('portfolio') && !projects && showProjects ? Array.from({length: 6}).fill({}) : [])" :key="'portfolio' + index">
         <div class="ArticleContainer --skeleton">
           <div class="ArticleImage --loading" role="presentation"></div>
           <div class="ArticleText --loading">
@@ -90,8 +90,8 @@ export default {
     return {
       _resizeListener: null,
       showEntries: ['blog', 'portfolio'],
-      posts: [],
-      projects: []
+      posts: null,
+      projects: null
     }
   },
   mounted() {
@@ -134,7 +134,7 @@ export default {
     },
     getFeed: function() {
       return _
-        .orderBy([...this.posts, ...this.projects], ['date'], ['desc'])
+        .orderBy([...(this.posts || []), ...(this.projects || [])], ['date'], ['desc'])
         .filter(entry => this.checkType(entry.type))
     },
     checkType: function(queryType) {
